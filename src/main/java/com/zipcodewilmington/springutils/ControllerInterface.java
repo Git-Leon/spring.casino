@@ -3,6 +3,8 @@ package com.zipcodewilmington.springutils;
 import org.springframework.http.ResponseEntity;
 
 public interface ControllerInterface<EntityType, IdType> {
+    ResponseEntity<EntityType> create();
+
     ResponseEntity<EntityType> create(EntityType entity);
 
     ResponseEntity<EntityType> read(IdType id);
