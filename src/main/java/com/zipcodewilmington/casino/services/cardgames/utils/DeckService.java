@@ -14,6 +14,11 @@ public class DeckService extends AbstractService<Deck, Long> {
     }
 
     @Override
+    public Deck create() {
+        return super.create(new Deck());
+    }
+
+    @Override
     public Deck update(Long id, Deck newData) {
         Deck deck = super.read(id);
         deck.setCardList(newData.getCardList());

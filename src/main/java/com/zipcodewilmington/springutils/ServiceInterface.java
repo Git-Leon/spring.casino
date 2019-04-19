@@ -1,6 +1,8 @@
 package com.zipcodewilmington.springutils;
 
 public interface ServiceInterface<EntityType, IdType> {
+    EntityType create();
+
     EntityType create(EntityType highLowGame);
 
     EntityType read(IdType gameId);

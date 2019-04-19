@@ -14,6 +14,11 @@ public class HighLoPlayerService extends AbstractService<HighLoPlayer, Long> {
     }
 
     @Override
+    public HighLoPlayer create() {
+        return super.create(new HighLoPlayer());
+    }
+
+    @Override
     public HighLoPlayer update(Long id, HighLoPlayer newData) {
         HighLoPlayer originalHiLowPlayer = super.repository.findById(id).get();
         originalHiLowPlayer.setAccount(newData.getAccount());

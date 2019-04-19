@@ -10,6 +10,11 @@ public class HandService extends AbstractService<Hand, Long> {
     }
 
     @Override
+    public Hand create() {
+        return super.create(new Hand());
+    }
+
+    @Override
     public Hand update(Long id, Hand newData) {
         Hand hand = read(id);
         hand.setCardList(newData.getCardList());

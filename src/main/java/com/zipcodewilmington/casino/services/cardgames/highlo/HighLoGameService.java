@@ -17,15 +17,15 @@ public class HighLoGameService extends AbstractService<HighLoGame, Long> {
         super(repository);
     }
 
+    public HighLoGame create() {
+        return super.create(new HighLoGame());
+    }
+
     @Override
     public HighLoGame update(Long gameId, HighLoGame newHighLoGame) {
         HighLoGame originalHighLoGame = super.read(gameId);
         originalHighLoGame.setId(newHighLoGame.getId());
         originalHighLoGame.setDeck(newHighLoGame.getDeck());
         return super.repository.save(originalHighLoGame);
-    }
-
-    public HighLoGame create() {
-        return super.create(new HighLoGame());
     }
 }
