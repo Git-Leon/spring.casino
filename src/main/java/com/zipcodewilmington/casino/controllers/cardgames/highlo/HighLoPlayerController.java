@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(value = "games/highlo/player")
 public class HighLoPlayerController extends AbstractController<HighLoPlayer, Long> {
-    @Autowired
     public HighLoPlayerController(HighLoPlayerService service) {
         super(service);
     }

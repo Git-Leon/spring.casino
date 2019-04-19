@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(value = "/accounts")
 public class AccountController extends AbstractController<Account, Long> {
-    @Autowired
     public AccountController(AccountService service) {
         super(service);
     }

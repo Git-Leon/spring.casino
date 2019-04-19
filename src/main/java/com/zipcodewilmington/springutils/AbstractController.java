@@ -1,5 +1,6 @@
 package com.zipcodewilmington.springutils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ import javax.persistence.MappedSuperclass;
 public class AbstractController<EntityType, IdType> implements ControllerInterface<EntityType, IdType> {
     protected ServiceInterface<EntityType, IdType> service;
 
+    @Autowired
     public AbstractController(ServiceInterface<EntityType, IdType> service) {
         this.service = service;
     }
