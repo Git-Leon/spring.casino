@@ -12,11 +12,14 @@ import javax.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
-public class AbstractController<EntityType, IdType> implements ControllerInterface<EntityType, IdType> {
-    protected ServiceInterface<EntityType, IdType> service;
+public class AbstractController
+        <EntityType, IdType, ServiceType extends ServiceInterface<EntityType, IdType>>
+        implements ControllerInterface<EntityType, IdType> {
+
+    protected ServiceType service;
 
     @Autowired
-    public AbstractController(ServiceInterface<EntityType, IdType> service) {
+    public AbstractController(ServiceType service) {
         this.service = service;
     }
 

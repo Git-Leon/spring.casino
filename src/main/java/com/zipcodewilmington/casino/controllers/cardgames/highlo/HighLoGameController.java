@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "games/highlo")
-public class HighLoGameController extends AbstractController<HighLoGame, Long> {
+public class HighLoGameController extends AbstractController<HighLoGame, Long, HighLoGameService> {
     public HighLoGameController(HighLoGameService service) {
         super(service);
     }

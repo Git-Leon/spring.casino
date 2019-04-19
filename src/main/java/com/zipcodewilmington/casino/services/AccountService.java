@@ -18,10 +18,18 @@ public class AccountService extends AbstractService<Account, Long> {
         return super.create(new Account());
     }
 
+    @Override
     public Account update(Long id, Account newAccountData){
         Account originalAccount = repository.findById(id).get();
         originalAccount.setName(newAccountData.getName());
         originalAccount.setBalance(newAccountData.getBalance());
         return  repository.save(originalAccount);
     }
+
+    public Account increaseBalance(Long id, Double funds) {
+        Account account = read(id);
+        account.setBalance(account.getBalance() + funds);
+        return update(id, account);
+    }
+
 }

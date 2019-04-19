@@ -17,6 +17,7 @@ public class HighLoGameService extends AbstractService<HighLoGame, Long> {
         super(repository);
     }
 
+    @Override
     public HighLoGame create() {
         return super.create(new HighLoGame());
     }

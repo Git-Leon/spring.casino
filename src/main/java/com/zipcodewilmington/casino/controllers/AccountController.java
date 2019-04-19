@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping(value = "/accounts")
-public class AccountController extends AbstractController<Account, Long> {
+public class AccountController extends AbstractController<Account, Long, AccountService> {
     public AccountController(AccountService service) {
         super(service);
+    }
+
+    @PutMapping("/{id}/increasebalance")
+    public ResponseEntity<Account> increaseBalance(@PathVariable Long id, @RequestBody Double funds) {
+        return new ResponseEntity<>(service.increaseBalance(id, funds), HttpStatus.OK);
     }
 }

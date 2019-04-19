@@ -8,7 +8,10 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Enumerated
     private final Rank rank;
+
+    @Enumerated
     private final Suit suit;
 
     public Card(Rank rank, Suit suit) {

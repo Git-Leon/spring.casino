@@ -2,6 +2,7 @@ package com.zipcodewilmington.casino.models.cardgames;
 
 
 import com.zipcodewilmington.casino.models.Account;
+import com.zipcodewilmington.casino.models.cardgames.utils.Card;
 import com.zipcodewilmington.casino.models.cardgames.utils.Hand;
 
 import javax.persistence.*;
@@ -26,6 +27,10 @@ public class CardPlayer {
         this.id = id;
         this.hand = hand;
         this.account = account;
+    }
+
+    public void addCard(Card card) {
+        hand.addCard(card);
     }
 
     public Long getId() {

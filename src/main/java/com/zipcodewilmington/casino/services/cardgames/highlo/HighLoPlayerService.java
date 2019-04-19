@@ -1,6 +1,7 @@
 package com.zipcodewilmington.casino.services.cardgames.highlo;
 
 import com.zipcodewilmington.casino.models.cardgames.highlo.HighLoPlayer;
+import com.zipcodewilmington.casino.models.cardgames.utils.Card;
 import com.zipcodewilmington.casino.repositories.cardgames.highlo.HighLoPlayerRepository;
 import com.zipcodewilmington.springutils.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class HighLoPlayerService extends AbstractService<HighLoPlayer, Long> {
         originalHiLowPlayer.setAccount(newData.getAccount());
         originalHiLowPlayer.setHand(newData.getHand());
         return super.repository.save(originalHiLowPlayer);
+    }
+
+    public HighLoPlayer addCard(HighLoPlayer player, Card card) {
+        player.addCard(card);
+        return player;
     }
 }
